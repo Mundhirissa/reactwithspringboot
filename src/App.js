@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+// App.js
+import React from 'react';
+import {  Route,  BrowserRouter, Routes } from 'react-router-dom';
+import IdaraList from './Componet/IdaraList';
+import AddNewIdara from './Componet/Addnewidara';
+import Navigationbar from './Componet/Navbar/Navigationbar';
+import EditIdara from './Componet/EditIdara';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+    <Navigationbar/>
+<Routes>
+      
+        <Route path="/" element={<IdaraList/>} />
+        <Route path="/add-new-idara" element={<AddNewIdara/>} />
+        <Route path="/edit-idara/:idaraID" element={<EditIdara/>} />
+  
+    </Routes>
+
+    </BrowserRouter>
+    
   );
 }
 
